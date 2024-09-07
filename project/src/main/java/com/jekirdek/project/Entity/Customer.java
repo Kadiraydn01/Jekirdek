@@ -29,4 +29,9 @@ public class Customer {
     @Column(name = "registration_date")
     private LocalDateTime registrationDate;
 
+    @PrePersist
+    protected void onCreate() {
+        this.registrationDate = LocalDateTime.now();
+    }
+
 }
