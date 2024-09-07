@@ -22,11 +22,18 @@ public class User {
     private String username;
     @Column(name = "password")
     private String password;
-    @Enumerated(EnumType.STRING)
     @Column(name = "role")
-    private Role role;
+    private String role;
     @Column(name = "created_at")
     private LocalDateTime createdAt;
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
+    @PrePersist
+    protected void onCreate() {
+        this.createdAt = LocalDateTime.now();
+    }
+    @PreUpdate
+    protected void onUpdate() {
+        this.updatedAt = LocalDateTime.now();
+    }
 }
