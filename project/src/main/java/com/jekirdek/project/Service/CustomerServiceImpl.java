@@ -35,15 +35,29 @@ public class CustomerServiceImpl implements CustomerService {
         Optional<Customer> existingCustomer = customerRepository.findById((long) id);
         if (existingCustomer.isPresent()) {
             Customer updatedCustomer = existingCustomer.get();
-            updatedCustomer.setFirstName(customer.getFirstName());
-            updatedCustomer.setLastName(customer.getLastName());
-            updatedCustomer.setEmail(customer.getEmail());
-            updatedCustomer.setRegion(customer.getRegion());
-            updatedCustomer.setRegistrationDate(customer.getRegistrationDate());
+
+            // Alanları kontrol edip sadece değişiklik yapılacak olanları güncelliyoruz
+            if (customer.getFirstName() != null) {
+                updatedCustomer.setFirstName(customer.getFirstName());
+            }
+            if (customer.getLastName() != null) {
+                updatedCustomer.setLastName(customer.getLastName());
+            }
+            if (customer.getEmail() != null) {
+                updatedCustomer.setEmail(customer.getEmail());
+            }
+            if (customer.getRegion() != null) {
+                updatedCustomer.setRegion(customer.getRegion());
+            }
+            if (customer.getRegistrationDate() != null) {
+                updatedCustomer.setRegistrationDate(customer.getRegistrationDate());
+            }
+
             return customerRepository.save(updatedCustomer);
         }
         return null;
     }
+
     public List<Customer> getCustomersForLoggedInUser(User loggedInUser) {
         return customerRepository.findByUserId(loggedInUser.getId());
     }

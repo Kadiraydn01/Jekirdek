@@ -13,44 +13,44 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/costumer")
-public class CostumerController {
+@RequestMapping("/customer")
+public class CustomerController {
     private final CustomerService customerService;
     private final UserService userService;
 
     @Autowired
-    public CostumerController(CustomerService customerService, UserService userService) {
+    public CustomerController(CustomerService customerService, UserService userService) {
         this.userService = userService;
         this.customerService = customerService;
     }
-    @PostMapping("/create")
+    @PostMapping("/create") //create customer done
     public Customer createCustomer(@RequestBody Customer customer) {
         return customerService.createCustomer(customer);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/{id}") //get customer by id done
     public Optional<Customer> getCustomerById(@PathVariable int id) {
         return customerService.getCustomerById(id);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/{id}") //update customer by id done
     public Customer updateCustomer(@PathVariable int id, @RequestBody Customer customer) {
         return customerService.updateCustomer(id, customer);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/{id}")//delete customer by id done
     public void deleteCustomer(@PathVariable int id) {
         customerService.deleteCustomer(id);
     }
 
-    @GetMapping("/all")
+    @GetMapping("/all") //get all customers done
     public List<Customer> getAllCustomers() {
 
         return customerService.getAllCustomers();
     }
 
 
-    @GetMapping("/loggedIn")
+    @GetMapping("/loggedIn") //get customers for logged in user done
     public ResponseEntity<List<Customer>> getLoggedInUserCustomers(Authentication authentication) {
         User loggedInUser = userService.findByUsername(authentication.getName());
 
@@ -60,7 +60,7 @@ public class CostumerController {
     }
 
 
-    @GetMapping("/filter")
+    @GetMapping("/filter") //filter customers done
     public List<Customer> filterCustomers(@RequestParam(required = false) String firstName,
                                           @RequestParam(required = false) String email,
                                           @RequestParam(required = false) String region) {
