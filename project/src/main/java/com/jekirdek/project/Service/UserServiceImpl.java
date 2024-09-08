@@ -2,7 +2,10 @@ package com.jekirdek.project.Service;
 
 import com.jekirdek.project.Entity.User;
 import com.jekirdek.project.Repository.UserRepository;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -45,6 +48,31 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     @Override
     public User findUserById(int id) {
         return userRepository.findById(id).orElse(null);
+    }
+
+    @Override
+    public User login(String username, String password) {
+        User user = userRepository.findByUsername(username)
+                .orElseThrow(() -> new UsernameNotFoundException("User not found with username: " + username));
+
+        // Şifre kontrolü
+        if (!encoder.matches(password, user.getPassword())) {
+            throw new RuntimeException("Invalid credentials");
+        }
+
+        return user;
+    }
+
+    @Override
+    public void logout(HttpServletRequest request) {
+
+        HttpSession session = request.getSession(false);
+        if (session != null) {
+            session.invalidate();
+        }
+
+
+        SecurityContextHolder.clearContext();
     }
 
     @Override
