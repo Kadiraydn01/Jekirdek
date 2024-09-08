@@ -1,6 +1,7 @@
 package com.jekirdek.project.Service;
 
 import com.jekirdek.project.Entity.Customer;
+import com.jekirdek.project.Entity.User;
 import com.jekirdek.project.Repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -42,6 +43,9 @@ public class CustomerServiceImpl implements CustomerService {
             return customerRepository.save(updatedCustomer);
         }
         return null;
+    }
+    public List<Customer> getCustomersForLoggedInUser(User loggedInUser) {
+        return customerRepository.findByUserId(loggedInUser.getId());
     }
 
     @Override

@@ -1,5 +1,6 @@
 package com.jekirdek.project.Entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -28,6 +29,11 @@ public class Customer {
     private String region;
     @Column(name = "registration_date")
     private LocalDateTime registrationDate;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    @JsonBackReference
+    private User user;
 
     @PrePersist
     protected void onCreate() {
