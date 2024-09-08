@@ -18,5 +18,6 @@ public interface UserService {
     User findByUsername(String username);
     List<User> getAllUsers();
     User registerUser(User user);
+    boolean passwordMatches(String rawPassword, String encodedPassword);
 
 }

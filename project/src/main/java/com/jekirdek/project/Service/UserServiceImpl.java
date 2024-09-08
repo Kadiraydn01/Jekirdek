@@ -13,6 +13,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserServiceImpl implements UserService, UserDetailsService {
@@ -74,6 +75,13 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 
         SecurityContextHolder.clearContext();
     }
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
+    @Override
+    public boolean passwordMatches(String rawPassword, String encodedPassword) {
+        return passwordEncoder.matches(rawPassword, encodedPassword);
+    }
 
     @Override
     public User findUserByRole(String role) {
@@ -82,8 +90,13 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 
     @Override
     public User findByUsername(String username) {
-        return userRepository.findByUsername(username).orElse(null);
+        Optional<User> userOptional = userRepository.findByUsername(username);
+        if (userOptional.isEmpty()) {
+            throw new UsernameNotFoundException("User not found");
+        }
+        return userOptional.get();
     }
+
 
     @Override
     public List<User> getAllUsers() {
