@@ -44,16 +44,14 @@ public class CustomerController {
             customer.setEmail(email);
             customer.setRegion(region);
 
-            // User'ı id'sine göre bul
             User user = userService.findUserById(userId);
             if (user == null) {
                 return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null); // User bulunamazsa hata döner
             }
 
-            // Customer'a User'ı set et
             customer.setUser(user);
 
-            // Customer'ı kaydet
+            //  Save Customer
             Customer createdCustomer = customerService.createCustomer(customer);
 
             return ResponseEntity.ok(createdCustomer);
