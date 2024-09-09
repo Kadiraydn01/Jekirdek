@@ -36,7 +36,6 @@ public class CustomerServiceImpl implements CustomerService {
         if (existingCustomer.isPresent()) {
             Customer updatedCustomer = existingCustomer.get();
 
-            // Alanları kontrol edip sadece değişiklik yapılacak olanları güncelliyoruz
             if (customer.getFirstName() != null) {
                 updatedCustomer.setFirstName(customer.getFirstName());
             }

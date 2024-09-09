@@ -19,14 +19,16 @@ public class JwtTokenProvider {
     @Value("${jwt.expiration}")
     private long expirationTime;
 
-    public String generateToken(String username) {
+    public String generateToken(String username, int userId) {
         return Jwts.builder()
                 .setSubject(username)
+                .claim("userId", userId)
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(System.currentTimeMillis() + expirationTime))
                 .signWith(SignatureAlgorithm.HS256, secretKey)
                 .compact();
     }
+
 
     public String getUsernameFromToken(String token) {
         return getClaimFromToken(token, Claims::getSubject);

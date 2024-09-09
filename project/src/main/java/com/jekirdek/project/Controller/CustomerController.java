@@ -5,14 +5,17 @@ import com.jekirdek.project.Entity.User;
 import com.jekirdek.project.Service.CustomerService;
 import com.jekirdek.project.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/customer")
 public class CustomerController {
     private final CustomerService customerService;
@@ -23,9 +26,40 @@ public class CustomerController {
         this.userService = userService;
         this.customerService = customerService;
     }
-    @PostMapping("/create") //create customer done
-    public Customer createCustomer(@RequestBody Customer customer) {
-        return customerService.createCustomer(customer);
+    @PostMapping("/create")
+    public ResponseEntity<Customer> createCustomer(@RequestBody Map<String, Object> customerData) {
+        try {
+            System.out.println("Received Data: " + customerData);
+
+            String firstName = (String) customerData.get("firstName");
+            String lastName = (String) customerData.get("lastName");
+            String email = (String) customerData.get("email");
+            String region = (String) customerData.get("region");
+            int userId = (Integer) customerData.get("userId");
+
+            // Customer nesnesini oluştur
+            Customer customer = new Customer();
+            customer.setFirstName(firstName);
+            customer.setLastName(lastName);
+            customer.setEmail(email);
+            customer.setRegion(region);
+
+            // User'ı id'sine göre bul
+            User user = userService.findUserById(userId);
+            if (user == null) {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null); // User bulunamazsa hata döner
+            }
+
+            // Customer'a User'ı set et
+            customer.setUser(user);
+
+            // Customer'ı kaydet
+            Customer createdCustomer = customerService.createCustomer(customer);
+
+            return ResponseEntity.ok(createdCustomer);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+        }
     }
 
     @GetMapping("/{id}") //get customer by id done

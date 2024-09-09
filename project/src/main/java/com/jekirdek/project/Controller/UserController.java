@@ -14,6 +14,7 @@ import java.util.List;
 
 
 @RequestMapping("/user")
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 public class UserController {
 
@@ -26,29 +27,30 @@ public class UserController {
         this.jwtTokenProvider = jwtTokenProvider;
     }
 
-    @PostMapping("/register")
+    @PostMapping("/register") //create user done
     public ResponseEntity<String> registerUser(@RequestBody User user) {
         userService.registerUser(user);
         return ResponseEntity.ok("User registered successfully");
     }
     // Add a new endpoint for logout
-    @GetMapping("/logout")
+    @GetMapping("/logout") //logout user done
     public ResponseEntity<String> logoutUser(HttpServletRequest request) {
         userService.logout(request);
         return ResponseEntity.ok("User logged out successfully");
     }
-    @PostMapping("/login")
+    @PostMapping("/login") //login user done
     public ResponseEntity<String> loginUser(@RequestBody User user) {
         UserDetails userDetails = userService.loadUserByUsername(user.getUsername());
+        int userId = userService.findByUsername(user.getUsername()).getId();
 
         if (userDetails != null && userService.passwordMatches(user.getPassword(), userDetails.getPassword())) {
-            String token = jwtTokenProvider.generateToken(userDetails.getUsername());
+            String token = jwtTokenProvider.generateToken(userDetails.getUsername(), userId);
             return ResponseEntity.ok(token);
         }
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid credentials");
     }
 
-    @GetMapping("/all")
+    @GetMapping("/all") //get all users done
     public List<User> getAllUsers() {
         return userService.getAllUsers();
     }
