@@ -26,6 +26,11 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
+    public Customer findByEmail(String email) {
+        return customerRepository.findByEmail(email).orElse(null);
+    }
+
+    @Override
     public Optional<Customer> getCustomerById(int id) {
         return customerRepository.findById((long) id);
     }

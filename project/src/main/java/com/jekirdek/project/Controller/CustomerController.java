@@ -29,7 +29,6 @@ public class CustomerController {
     @PostMapping("/create")
     public ResponseEntity<Customer> createCustomer(@RequestBody Map<String, Object> customerData) {
         try {
-            System.out.println("Received Data: " + customerData);
 
             String firstName = (String) customerData.get("firstName");
             String lastName = (String) customerData.get("lastName");
@@ -37,7 +36,11 @@ public class CustomerController {
             String region = (String) customerData.get("region");
             int userId = (Integer) customerData.get("userId");
 
-            // Customer nesnesini oluştur
+            Customer existingCustomer = customerService.findByEmail(email);
+            if(existingCustomer != null) {
+                return ResponseEntity.status(HttpStatus.CONFLICT).body(null);
+            }
+
             Customer customer = new Customer();
             customer.setFirstName(firstName);
             customer.setLastName(lastName);
@@ -46,12 +49,11 @@ public class CustomerController {
 
             User user = userService.findUserById(userId);
             if (user == null) {
-                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null); // User bulunamazsa hata döner
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
             }
 
             customer.setUser(user);
 
-            //  Save Customer
             Customer createdCustomer = customerService.createCustomer(customer);
 
             return ResponseEntity.ok(createdCustomer);

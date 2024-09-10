@@ -8,6 +8,7 @@ import java.util.Optional;
 
 public interface CustomerService {
     Customer createCustomer(Customer customer);
+    Customer findByEmail(String email);
     Optional<Customer> getCustomerById(int id);
     Customer updateCustomer(int id, Customer customer);
     void deleteCustomer(int id);
