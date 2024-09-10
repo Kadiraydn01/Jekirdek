@@ -40,3 +40,25 @@
 2024-09-10 18:14:17 [http-nio-8000-exec-1] DEBUG org.hibernate.SQL - select c1_0.id,c1_0.email,c1_0.first_name,c1_0.last_name,c1_0.region,c1_0.registration_date,c1_0.user_id from customer c1_0 where c1_0.user_id=?
 2024-09-10 18:14:17 [http-nio-8000-exec-1] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:INTEGER) <- [2]
 2024-09-10 18:14:17 [http-nio-8000-exec-1] INFO  c.j.p.Service.CustomerServiceImpl - Retrieved 8 customers for user ID: 2
+2024-09-10 18:15:49 [http-nio-8000-exec-4] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.password,u1_0.role,u1_0.updated_at,u1_0.username from user u1_0 where u1_0.username=?
+2024-09-10 18:15:49 [http-nio-8000-exec-4] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [Kadir]
+2024-09-10 18:15:49 [http-nio-8000-exec-4] DEBUG org.hibernate.SQL - select c1_0.id,c1_0.email,c1_0.first_name,c1_0.last_name,c1_0.region,c1_0.registration_date,c1_0.user_id from customer c1_0 where c1_0.email=?
+2024-09-10 18:15:49 [http-nio-8000-exec-4] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [kadiraydn02@gmail.com]
+2024-09-10 18:15:49 [http-nio-8000-exec-4] WARN  c.j.p.Service.CustomerServiceImpl - No customer found with email: kadiraydn02@gmail.com
+2024-09-10 18:15:49 [http-nio-8000-exec-4] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.password,u1_0.role,u1_0.updated_at,u1_0.username from user u1_0 where u1_0.id=?
+2024-09-10 18:15:49 [http-nio-8000-exec-4] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:INTEGER) <- [2]
+2024-09-10 18:15:49 [http-nio-8000-exec-4] DEBUG org.hibernate.SQL - insert into customer (email,first_name,last_name,region,registration_date,user_id) values (?,?,?,?,?,?)
+2024-09-10 18:15:49 [http-nio-8000-exec-4] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [kadiraydn02@gmail.com]
+2024-09-10 18:15:49 [http-nio-8000-exec-4] TRACE org.hibernate.orm.jdbc.bind - binding parameter (2:VARCHAR) <- [Abdülkadir]
+2024-09-10 18:15:49 [http-nio-8000-exec-4] TRACE org.hibernate.orm.jdbc.bind - binding parameter (3:VARCHAR) <- [Aydın]
+2024-09-10 18:15:49 [http-nio-8000-exec-4] TRACE org.hibernate.orm.jdbc.bind - binding parameter (4:VARCHAR) <- [istanbul]
+2024-09-10 18:15:49 [http-nio-8000-exec-4] TRACE org.hibernate.orm.jdbc.bind - binding parameter (5:TIMESTAMP) <- [2024-09-10T18:15:49.297038900]
+2024-09-10 18:15:49 [http-nio-8000-exec-4] TRACE org.hibernate.orm.jdbc.bind - binding parameter (6:INTEGER) <- [2]
+2024-09-10 18:15:49 [http-nio-8000-exec-4] INFO  c.j.p.Service.CustomerServiceImpl - Created new customer with ID: 21
+2024-09-10 18:15:49 [http-nio-8000-exec-5] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.password,u1_0.role,u1_0.updated_at,u1_0.username from user u1_0 where u1_0.username=?
+2024-09-10 18:15:49 [http-nio-8000-exec-5] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [Kadir]
+2024-09-10 18:15:49 [http-nio-8000-exec-5] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.password,u1_0.role,u1_0.updated_at,u1_0.username from user u1_0 where u1_0.username=?
+2024-09-10 18:15:49 [http-nio-8000-exec-5] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [Kadir]
+2024-09-10 18:15:49 [http-nio-8000-exec-5] DEBUG org.hibernate.SQL - select c1_0.id,c1_0.email,c1_0.first_name,c1_0.last_name,c1_0.region,c1_0.registration_date,c1_0.user_id from customer c1_0 where c1_0.user_id=?
+2024-09-10 18:15:49 [http-nio-8000-exec-5] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:INTEGER) <- [2]
+2024-09-10 18:15:49 [http-nio-8000-exec-5] INFO  c.j.p.Service.CustomerServiceImpl - Retrieved 9 customers for user ID: 2
