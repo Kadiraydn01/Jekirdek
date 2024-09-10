@@ -62,3 +62,11 @@
 2024-09-10 18:15:49 [http-nio-8000-exec-5] DEBUG org.hibernate.SQL - select c1_0.id,c1_0.email,c1_0.first_name,c1_0.last_name,c1_0.region,c1_0.registration_date,c1_0.user_id from customer c1_0 where c1_0.user_id=?
 2024-09-10 18:15:49 [http-nio-8000-exec-5] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:INTEGER) <- [2]
 2024-09-10 18:15:49 [http-nio-8000-exec-5] INFO  c.j.p.Service.CustomerServiceImpl - Retrieved 9 customers for user ID: 2
+2024-09-10 18:22:09 [http-nio-8000-exec-8] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.password,u1_0.role,u1_0.updated_at,u1_0.username from user u1_0 where u1_0.username=?
+2024-09-10 18:22:09 [http-nio-8000-exec-8] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [Kadir]
+2024-09-10 18:22:09 [http-nio-8000-exec-8] DEBUG org.hibernate.SQL - select c1_0.id,c1_0.email,c1_0.first_name,c1_0.last_name,c1_0.region,c1_0.registration_date,c1_0.user_id from customer c1_0
+2024-09-10 18:22:09 [http-nio-8000-exec-8] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.password,u1_0.role,u1_0.updated_at,u1_0.username from user u1_0 where u1_0.id=?
+2024-09-10 18:22:09 [http-nio-8000-exec-8] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:INTEGER) <- [3]
+2024-09-10 18:22:09 [http-nio-8000-exec-8] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.password,u1_0.role,u1_0.updated_at,u1_0.username from user u1_0 where u1_0.id=?
+2024-09-10 18:22:09 [http-nio-8000-exec-8] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:INTEGER) <- [2]
+2024-09-10 18:22:09 [http-nio-8000-exec-8] INFO  c.j.p.Service.CustomerServiceImpl - Filtered customers based on criteria - FirstName: Kaan, Email: null, Region: null. Total count: 2
