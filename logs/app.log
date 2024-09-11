@@ -1840,3 +1840,61 @@
 2024-09-11 21:02:40 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
 2024-09-11 21:02:40 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 2024-09-11 21:02:40 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-09-11 21:02:44 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-09-11 21:02:44 [restartedMain] INFO  c.j.project.ProjectApplication - Starting ProjectApplication using Java 17.0.12 with PID 21412 (C:\Users\Kadir\Desktop\Jekirdek\project\target\classes started by Kadir in C:\Users\Kadir\Desktop\Jekirdek)
+2024-09-11 21:02:44 [restartedMain] INFO  c.j.project.ProjectApplication - No active profile set, falling back to 1 default profile: "default"
+2024-09-11 21:02:44 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-09-11 21:02:44 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-09-11 21:02:45 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-11 21:02:45 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 75 ms. Found 2 JPA repository interfaces.
+2024-09-11 21:02:46 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8000 (http)
+2024-09-11 21:02:46 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8000"]
+2024-09-11 21:02:46 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-09-11 21:02:46 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-11 21:02:46 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-09-11 21:02:46 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2155 ms
+2024-09-11 21:02:46 [restartedMain] WARN  o.s.aop.framework.CglibAopProxy - Unable to proxy interface-implementing method [public final void org.springframework.web.filter.OncePerRequestFilter.doFilter(jakarta.servlet.ServletRequest,jakarta.servlet.ServletResponse,jakarta.servlet.FilterChain) throws jakarta.servlet.ServletException,java.io.IOException] because it is marked as final, consider using interface-based JDK proxies instead.
+2024-09-11 21:02:46 [restartedMain] WARN  o.s.aop.framework.CglibAopProxy - Unable to proxy interface-implementing method [public final void org.springframework.web.filter.GenericFilterBean.init(jakarta.servlet.FilterConfig) throws jakarta.servlet.ServletException] because it is marked as final, consider using interface-based JDK proxies instead.
+2024-09-11 21:02:46 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-11 21:02:46 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-09-11 21:02:47 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-09-11 21:02:47 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-11 21:02:47 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-09-11 21:02:47 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@aa2caa9
+2024-09-11 21:02:47 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-09-11 21:02:47 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-09-11 21:02:47 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-09-11 21:02:48 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-11 21:02:49 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-11 21:02:49 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-11 21:02:49 [restartedMain] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name userServiceImpl
+2024-09-11 21:02:50 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-09-11 21:02:50 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8000"]
+2024-09-11 21:02:50 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8000 (http) with context path '/'
+2024-09-11 21:02:50 [restartedMain] INFO  c.j.project.ProjectApplication - Started ProjectApplication in 6.316 seconds (process running for 7.11)
+2024-09-11 21:02:52 [http-nio-8000-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-11 21:02:52 [http-nio-8000-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-09-11 21:02:52 [http-nio-8000-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-09-11 21:02:52 [http-nio-8000-exec-2] INFO  c.j.project.Service.UserServiceImpl - Loading user with username: Kadir
+2024-09-11 21:02:52 [http-nio-8000-exec-2] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.password,u1_0.role,u1_0.updated_at,u1_0.username from user u1_0 where u1_0.username=?
+2024-09-11 21:02:52 [http-nio-8000-exec-2] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [Kadir]
+2024-09-11 21:02:52 [http-nio-8000-exec-2] DEBUG org.hibernate.SQL - select c1_0.id,c1_0.email,c1_0.first_name,c1_0.last_name,c1_0.region,c1_0.registration_date,u1_0.id,u1_0.created_at,u1_0.password,u1_0.role,u1_0.updated_at,u1_0.username from customer c1_0 left join user u1_0 on u1_0.id=c1_0.user_id where c1_0.id=?
+2024-09-11 21:02:52 [http-nio-8000-exec-2] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:INTEGER) <- [2]
+2024-09-11 21:02:52 [http-nio-8000-exec-2] DEBUG org.hibernate.SQL - update customer set email=?,first_name=?,last_name=?,region=?,registration_date=?,user_id=? where id=?
+2024-09-11 21:02:52 [http-nio-8000-exec-2] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [example@example.com]
+2024-09-11 21:02:52 [http-nio-8000-exec-2] TRACE org.hibernate.orm.jdbc.bind - binding parameter (2:VARCHAR) <- [Kaan]
+2024-09-11 21:02:52 [http-nio-8000-exec-2] TRACE org.hibernate.orm.jdbc.bind - binding parameter (3:VARCHAR) <- [Kömürcün]
+2024-09-11 21:02:52 [http-nio-8000-exec-2] TRACE org.hibernate.orm.jdbc.bind - binding parameter (4:VARCHAR) <- [İstanbullu]
+2024-09-11 21:02:52 [http-nio-8000-exec-2] TRACE org.hibernate.orm.jdbc.bind - binding parameter (5:TIMESTAMP) <- [2024-09-08T22:35:56.956639]
+2024-09-11 21:02:52 [http-nio-8000-exec-2] TRACE org.hibernate.orm.jdbc.bind - binding parameter (6:INTEGER) <- [2]
+2024-09-11 21:02:52 [http-nio-8000-exec-2] TRACE org.hibernate.orm.jdbc.bind - binding parameter (7:INTEGER) <- [2]
+2024-09-11 21:02:52 [http-nio-8000-exec-2] INFO  c.j.p.Service.CustomerServiceImpl - Updated customer with ID: 2
+2024-09-11 21:02:52 [http-nio-8000-exec-3] INFO  c.j.project.Service.UserServiceImpl - Loading user with username: Kadir
+2024-09-11 21:02:52 [http-nio-8000-exec-3] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.password,u1_0.role,u1_0.updated_at,u1_0.username from user u1_0 where u1_0.username=?
+2024-09-11 21:02:52 [http-nio-8000-exec-3] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [Kadir]
+2024-09-11 21:02:52 [http-nio-8000-exec-3] INFO  c.j.project.Service.UserServiceImpl - Finding user with username: Kadir
+2024-09-11 21:02:52 [http-nio-8000-exec-3] DEBUG org.hibernate.SQL - select u1_0.id,u1_0.created_at,u1_0.password,u1_0.role,u1_0.updated_at,u1_0.username from user u1_0 where u1_0.username=?
+2024-09-11 21:02:52 [http-nio-8000-exec-3] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:VARCHAR) <- [Kadir]
+2024-09-11 21:02:52 [http-nio-8000-exec-3] DEBUG org.hibernate.SQL - select c1_0.id,c1_0.email,c1_0.first_name,c1_0.last_name,c1_0.region,c1_0.registration_date,c1_0.user_id from customer c1_0 where c1_0.user_id=?
+2024-09-11 21:02:52 [http-nio-8000-exec-3] TRACE org.hibernate.orm.jdbc.bind - binding parameter (1:INTEGER) <- [2]
+2024-09-11 21:02:52 [http-nio-8000-exec-3] INFO  c.j.p.Service.CustomerServiceImpl - Retrieved 12 customers for user ID: 2
